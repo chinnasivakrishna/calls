@@ -6,12 +6,15 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const { OpenAI } = require('openai');
 const twilio = require('twilio');
+const cors = require('cors');
 
 dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
+app.use(cors());
+
 
 // MongoDB Interview Schema
 const interviewSchema = new mongoose.Schema({
